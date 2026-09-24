@@ -40,7 +40,7 @@
         </div>
     </section>
 
-    <!-- NEW SECTION: Categories Slider/Grid -->
+    <!-- Categories Section -->
     <section id="categories" class="categories-section">
         <h2>Browse By Category</h2>
         <p class="section-subtitle">Select a category to jump directly to our catalog segments.</p>
@@ -69,7 +69,6 @@
 
             <!-- Product 1: Toyota Fielder (Vehicle) -->
             <div class="product-card" data-category="cars">
-                <!-- Mini Image Slider Wrapper -->
                 <div class="swiper mini-slider">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide"><img src="https://unsplash.com" alt="Toyota Fielder Front View"></div>
@@ -171,7 +170,7 @@
         <div class="contact-grid">
             <div class="contact-info">
                 <h3>Customer Support</h3>
-                <p class="phone-number"><i class="fas fa-phone-alt"></i> 0787622535</p>
+                <p class="phone-number"><i class="fas fa-phone-alt"></i> 0787 622 535</p>
                 <p>Call or message us anytime to receive verified secure escrow logistics options.</p>
             </div>
             
@@ -193,42 +192,8 @@
         </div>
     </section>
 
-    <!-- ... everything else above stays exactly the same ... -->
-
     <footer>
         <p>&copy; 2026 Miki Digital. All Rights Reserved. Sourced from Q4 Product Roadmap Assets.</p>
     </footer>
 
-    <!-- Swiper JavaScript Engine (Required for sliders) -->
-    <script src="https://jsdelivr.net"></script>
-
-    <!-- PASTE THE JAVASCRIPT LOGIC DIRECTLY HERE: -->
-    <script>
-        // Start Carousel Sliders on Each Card
-        const swiper = new Swiper('.mini-slider', {
-            loop: true,
-            pagination: { el: '.swiper-pagination', clickable: true },
-        });
-
-        // Mobile Menu Toggle Script
-        const mobileMenu = document.getElementById('mobile-menu');
-        const navMenu = document.getElementById('nav-menu');
-        mobileMenu.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-        });
-
-        // Simple Visual Category Filtering Layout Logic
-        function filterCategory(category) {
-            const cards = document.querySelectorAll('.product-card');
-            cards.forEach(card => {
-                if (category === 'all' || card.getAttribute('data-category') === category) {
-                    card.style.display = 'flex';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        }
-    </script>
-</body>
-</html>
-
+    <!-- Swiper JavaScript Dependency -->
