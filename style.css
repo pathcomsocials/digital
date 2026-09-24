@@ -1,4 +1,4 @@
-/* --- Core Layout Reset Variables --- */
+/* --- Core Reset Configurations --- */
 * {
     margin: 0;
     padding: 0;
@@ -10,7 +10,7 @@ html {
 }
 
 body {
-    font-family: 'Montserrat', 'Helvetica', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     background-color: #ffffff;
     color: #111111;
     line-height: 1.6;
@@ -25,7 +25,7 @@ body {
     --gray-border: #e0e0e0;
 }
 
-/* --- Header Layout & Toggle Layer Fixes --- */
+/* --- Navigation Header & Responsive Triggers --- */
 header {
     background-color: var(--black-bg);
     color: var(--white-bg);
@@ -42,7 +42,6 @@ header {
 header .logo {
     font-size: 22px;
     font-weight: 700;
-    letter-spacing: 0.5px;
 }
 
 header .logo span {
@@ -55,35 +54,36 @@ nav a {
     margin-left: 25px;
     font-weight: 600;
     font-size: 15px;
-    transition: color 0.3s ease;
+    transition: color 0.3s;
 }
 
 nav a:hover {
     color: var(--orange-highlight);
 }
 
-/* Hamburger button styling */
+/* Corrected Mobile Toggle Visibility Rule */
 .menu-toggle {
     display: none;
     background: none;
     border: none;
     font-size: 26px;
     cursor: pointer;
-    color: var(--white-bg);
+    color: var(--white-bg) !important; /* Forces the icon layer to remain bright white */
     padding: 5px;
-    transition: color 0.2s ease;
+    z-index: 2500;
 }
 
-.menu-toggle:hover {
-    color: var(--orange-highlight);
+.menu-toggle i {
+    display: block !important;
 }
 
-/* --- Master Hero Slideshow Framework --- */
+/* --- Fixed Sliding Layout Settings (Prevents Stacking) --- */
 .hero-slider-wrapper {
     width: 100%;
     height: 70vh;
     min-height: 500px;
     position: relative;
+    overflow: hidden; /* Clears layout element overlap bounds */
 }
 
 .hero-swiper {
@@ -99,11 +99,12 @@ nav a:hover {
     justify-content: center;
     text-align: center;
     padding: 0 5%;
+    box-sizing: border-box;
 }
 
 .hero-content {
     max-width: 800px;
-    animation: fadeIn 0.8s ease;
+    width: 100%;
 }
 
 .hero-content h1 {
@@ -111,14 +112,14 @@ nav a:hover {
     font-weight: 700;
     margin-bottom: 20px;
     color: var(--white-bg);
-    text-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    text-shadow: 0 4px 12px rgba(0,0,0,0.6);
 }
 
 .hero-content p {
     font-size: 18px;
     margin-bottom: 35px;
     color: #e0e0e0;
-    text-shadow: 0 2px 6px rgba(0,0,0,0.5);
+    text-shadow: 0 2px 6px rgba(0,0,0,0.6);
 }
 
 .hero-buttons {
@@ -127,40 +128,28 @@ nav a:hover {
     gap: 20px;
 }
 
-/* Core Buttons Style Mapping */
+/* Core Buttons Configuration */
 .btn {
     display: inline-block;
     padding: 14px 35px;
     text-decoration: none;
     font-weight: 700;
     border-radius: 4px;
-    font-size: 14px;
+    font-size: 13px;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
-    transition: transform 0.2s ease, background-color 0.3s ease;
+    transition: transform 0.2s;
 }
 
 .btn-primary { background-color: var(--white-bg); color: var(--black-bg); }
-.btn-primary:hover { background-color: #e6e6e6; }
 .btn-secondary { background-color: var(--orange-highlight); color: var(--white-bg); }
-.btn-secondary:hover { background-color: #e05500; }
-.btn:hover { transform: translateY(-3px); }
+.btn:hover { transform: translateY(-2px); }
 
-/* Customizing Hero Navigation Swiper Arrows */
-.hero-next, .hero-prev {
-    color: var(--white-bg) !important;
-    transition: color 0.2s ease;
-}
-.hero-next:hover, .hero-prev:hover {
-    color: var(--orange-highlight) !important;
-}
-.hero-pagination .swiper-pagination-bullet {
-    background: rgba(255,255,255,0.6) !important;
-}
+.hero-next, .hero-prev { color: var(--white-bg) !important; }
+.hero-pagination .swiper-pagination-bullet-active { background: var(--orange-highlight) !important; }
 
-/* --- Browse Categories Section --- */
+/* --- Browse Categories Filters Layout --- */
 .categories-section {
-    padding: 70px 5% 40px 5%;
+    padding: 60px 5% 35px 5%;
     background-color: #fafafa;
     text-align: center;
     border-bottom: 1px solid var(--gray-border);
@@ -171,24 +160,22 @@ nav a:hover {
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 20px;
     max-width: 1100px;
-    margin: 35px auto 0 auto;
+    margin: 30px auto 0 auto;
 }
 
 .category-card {
     background-color: var(--white-bg);
     border: 1px solid var(--gray-border);
     border-radius: 6px;
-    padding: 25px 15px;
+    padding: 22px 15px;
     cursor: pointer;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
-    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: all 0.25s ease;
 }
 
 .category-card i {
     font-size: 28px;
     color: #555;
     margin-bottom: 12px;
-    transition: color 0.3s ease;
 }
 
 .category-card h3 {
@@ -198,33 +185,26 @@ nav a:hover {
 }
 
 .category-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 15px rgba(0,0,0,0.06);
-    border-color: #b3b3b3;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.04);
 }
 
-/* Active Category Highlights Rule */
 .category-card.active {
     border: 2px solid var(--orange-highlight);
     background-color: #fff9f5;
 }
-.category-card.active i {
-    color: var(--orange-highlight);
-}
-.category-card.active h3 {
-    color: var(--black-bg);
-    font-weight: 700;
-}
+.category-card.active i { color: var(--orange-highlight); }
+.category-card.active h3 { font-weight: 700; }
 
-/* --- Catalog & Grid Sections --- */
-.services-section { padding: 70px 5%; text-align: center; }
-.services-section h2, .categories-section h2, .contact-section h2 { font-size: 32px; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 10px; }
-.section-subtitle { color: #666; font-size: 15px; max-width: 600px; margin: 0 auto 50px auto; }
+/* --- Catalog Grid Space --- */
+.services-section { padding: 60px 5%; text-align: center; }
+.services-section h2, .categories-section h2, .contact-section h2 { font-size: 30px; font-weight: 700; margin-bottom: 8px; }
+.section-subtitle { color: #666; font-size: 14px; margin-bottom: 45px; }
 
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 35px;
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+    gap: 30px;
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -237,16 +217,14 @@ nav a:hover {
     text-align: left;
     display: flex;
     flex-direction: column;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.01);
 }
 
-/* --- Card Mini Swiper Sliders --- */
 .mini-slider {
     width: 100%;
-    height: 220px;
+    height: 210px;
     border-radius: 6px;
-    margin-bottom: 20px;
-    background-color: #f0f0f0;
+    margin-bottom: 15px;
+    overflow: hidden;
 }
 
 .mini-slider img {
@@ -255,134 +233,104 @@ nav a:hover {
     object-fit: cover;
 }
 
-/* --- Product Buttons Layout Row --- */
+/* Card Controls Actions Row */
 .card-buttons {
     display: flex;
-    gap: 12px;
-    margin-bottom: 20px;
+    gap: 10px;
+    margin-bottom: 15px;
 }
 
 .btn-card {
     flex: 1;
     text-align: center;
-    padding: 12px 10px;
-    font-size: 13px;
+    padding: 11px;
+    font-size: 12px;
     text-decoration: none;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
     border-radius: 4px;
     border: 1.5px solid var(--black-bg);
     color: var(--black-bg);
-    background-color: transparent;
-    transition: all 0.2s ease;
+    transition: all 0.2s;
 }
 
-.btn-card:hover {
-    background-color: var(--black-bg);
-    color: var(--white-bg);
-}
+.btn-card:hover { background-color: var(--black-bg); color: var(--white-bg); }
+.primary-card-btn { background-color: var(--orange-highlight); border-color: var(--orange-highlight); color: var(--white-bg); }
+.primary-card-btn:hover { background-color: #e05500; border-color: #e05500; }
 
-.primary-card-btn {
-    background-color: var(--orange-highlight);
-    border-color: var(--orange-highlight);
-    color: var(--white-bg);
-}
+.product-card h3 { font-size: 18px; margin-bottom: 5px; font-weight: 700; }
+.product-card .tag { font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--orange-highlight); margin-bottom: 12px; }
+.product-card ul { list-style: none; font-size: 13px; margin-top: auto; }
+.product-card ul li { margin-bottom: 6px; color: #444; padding-bottom: 5px; border-bottom: 1px dashed #eaeaea; }
 
-.primary-card-btn:hover {
-    background-color: #d45500;
-    border-color: #d45500;
-    color: var(--white-bg);
-}
+/* --- Contact & Clean Isolated Social Media Profiles --- */
+.contact-section { background-color: var(--black-bg); color: var(--white-bg); padding: 60px 5%; text-align: center; }
+.contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; max-width: 950px; margin: 0 auto; text-align: left; }
+.phone-number { font-size: 26px; font-weight: 700; color: var(--orange-highlight); margin: 10px 0; }
+.phone-number i { margin-right: 8px; }
 
-.product-card h3 { font-size: 19px; margin-bottom: 6px; font-weight: 700; color: #111; }
-.product-card .tag { font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--orange-highlight); letter-spacing: 0.5px; margin-bottom: 15px; }
-.product-card ul { list-style: none; font-size: 14px; margin-top: auto; }
-.product-card ul li { margin-bottom: 8px; color: #444; border-bottom: 1px dashed #eaeaea; padding-bottom: 6px; }
-.product-card ul li:last-child { border: none; padding-bottom: 0; margin-bottom: 0; }
-
-/* --- Contact Profile Section --- */
-.contact-section { background-color: var(--black-bg); color: var(--white-bg); padding: 70px 5%; text-align: center; }
-.contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 50px; max-width: 950px; margin: 0 auto; text-align: left; }
-.phone-number { font-size: 28px; font-weight: 700; color: var(--orange-highlight); margin: 15px 0; }
-.phone-number i { margin-right: 10px; }
-
-/* --- Social Media Boxes & Icon Alignments --- */
-.social-links { display: flex; flex-direction: column; gap: 14px; }
-.social-box {
+/* Clean Isolated Official Branding Circles Layout */
+.social-icon-directory {
     display: flex;
     align-items: center;
-    padding: 15px 20px;
-    text-decoration: none;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.icon-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
     color: var(--white-bg);
-    font-weight: 600;
-    font-size: 15px;
-    border-radius: 4px;
-    background-color: #1c1c1c;
-    border-left: 4px solid #333;
-    transition: all 0.25s ease;
+    font-size: 22px !important;
+    text-decoration: none;
+    background-color: #1e1e1e;
+    transition: all 0.2s ease-in-out;
 }
 
-/* Force social icons to render at fixed scale metrics */
-.social-box i {
-    font-size: 20px !important;
-    width: 35px;
-    text-align: left;
-    display: inline-block;
-}
+/* Brand Palette Profiles */
+.whatsapp:hover { background-color: #25D366; transform: scale(1.1); }
+.facebook:hover { background-color: #1877F2; transform: scale(1.1); }
+.instagram:hover { background-color: #E1306C; transform: scale(1.1); }
+.tiktok:hover { background-color: #ffffff; color: #000000; transform: scale(1.1); }
 
-.whatsapp { border-left-color: #25D366; }
-.whatsapp:hover { background-color: #25D366; color: white; }
-.facebook { border-left-color: #1877F2; }
-.facebook:hover { background-color: #1877F2; color: white; }
-.instagram { border-left-color: #E1306C; }
-.instagram:hover { background-color: #E1306C; color: white; }
-.tiktok { border-left-color: #ffffff; }
-.tiktok:hover { background-color: #ffffff; color: #000000; }
+footer { background-color: #080808; color: #555; text-align: center; padding: 25px 5%; font-size: 12px; border-top: 1px solid #1a1a1a; }
 
-footer { background-color: #080808; color: #666; text-align: center; padding: 30px 5%; font-size: 13px; border-top: 1px solid #1a1a1a; }
-
-/* --- KEYFRAME ENGINES --- */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(15px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* --- MOBILE RESPONSIVE MEDIA QUERIES --- */
+/* --- MOBILE TARGET VIEWS BREAKPOINT --- */
 @media (max-width: 768px) {
-    .menu-toggle {
-        display: block; /* Reveals hamburger button on phones */
+    .menu-toggle { 
+        display: block !important; /* Explicitly forces the hamburger button to render on screen */
     }
-
+    
     nav {
         display: none;
         flex-direction: column;
         width: 100%;
         position: absolute;
-        top: 66px;
+        top: 62px;
         left: 0;
         background-color: var(--black-bg);
-        border-bottom: 2px solid var(--orange-highlight);
         padding: 15px 0;
-        box-shadow: 0 10px 15px rgba(0,0,0,0.3);
+        border-bottom: 2px solid var(--orange-highlight);
     }
-
+    
     nav.active {
-        display: flex; /* Script triggers this class parameter live */
+        display: flex !important;
     }
-
+    
     nav a {
         margin: 10px 8%;
         font-size: 16px;
-        padding: 5px 0;
+        display: block;
     }
-
-    .hero-slider-wrapper { height: 60vh; }
-    .hero-content h1 { font-size: 28px; }
-    .hero-content p { font-size: 15px; }
-    .hero-buttons { flex-direction: column; width: 100%; max-width: 280px; margin: 0 auto; gap: 10px; }
-    .btn { width: 100%; text-align: center; padding: 12px 20px; }
     
+    .hero-slider-wrapper { height: 55vh; }
+    .hero-content h1 { font-size: 28px; }
+    .hero-buttons { flex-direction: column; max-width: 280px; margin: 0 auto; gap: 10px; }
+    .btn { width: 100%; text-align: center; }
     .contact-grid { text-align: center; }
-.social-box { justify-content: start; }
+    .social-icon-directory { justify-content: center; }
 }
