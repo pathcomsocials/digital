@@ -1,4 +1,4 @@
-/* --- Global Styles & Responsive Core --- */
+/* --- Core Layout Reset Variables --- */
 * {
     margin: 0;
     padding: 0;
@@ -17,7 +17,6 @@ body {
     overflow-x: hidden;
 }
 
-/* --- Color Palette Variables --- */
 :root {
     --orange-highlight: #ff6600;
     --black-bg: #111111;
@@ -26,23 +25,24 @@ body {
     --gray-border: #e0e0e0;
 }
 
-/* --- Responsive Navigation Header --- */
+/* --- Header Layout & Toggle Layer Fixes --- */
 header {
     background-color: var(--black-bg);
     color: var(--white-bg);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 5%;
+    padding: 18px 5%;
     position: sticky;
     top: 0;
-    z-index: 1000;
+    z-index: 2000;
     border-bottom: 2px solid var(--orange-highlight);
 }
 
 header .logo {
     font-size: 22px;
     font-weight: 700;
+    letter-spacing: 0.5px;
 }
 
 header .logo span {
@@ -52,142 +52,179 @@ header .logo span {
 nav a {
     color: var(--white-bg);
     text-decoration: none;
-    margin-left: 20px;
+    margin-left: 25px;
     font-weight: 600;
     font-size: 15px;
-    transition: color 0.3s;
+    transition: color 0.3s ease;
 }
 
 nav a:hover {
     color: var(--orange-highlight);
 }
 
+/* Hamburger button styling */
 .menu-toggle {
     display: none;
-    font-size: 24px;
+    background: none;
+    border: none;
+    font-size: 26px;
     cursor: pointer;
     color: var(--white-bg);
+    padding: 5px;
+    transition: color 0.2s ease;
 }
 
-/* --- Categories Section --- */
-.categories-section {
-    padding: 60px 5% 40px 5%;
-    background-color: #fcfcfc;
-    text-align: center;
-}
-
-.category-grid {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 20px;
-    max-width: 900px;
-    margin: 30px auto 0 auto;
-}
-
-.category-card {
-    background-color: var(--white-bg);
-    border: 2px solid var(--gray-border);
-    border-radius: 8px;
-    padding: 20px;
-    flex: 1;
-    min-width: 200px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.category-card i {
-    font-size: 32px;
+.menu-toggle:hover {
     color: var(--orange-highlight);
-    margin-bottom: 10px;
 }
 
-.category-card h3 {
-    font-size: 16px;
-    font-weight: 600;
+/* --- Master Hero Slideshow Framework --- */
+.hero-slider-wrapper {
+    width: 100%;
+    height: 70vh;
+    min-height: 500px;
+    position: relative;
 }
 
-.category-card:hover {
-    border-color: var(--orange-highlight);
-    transform: translateY(-3px);
+.hero-swiper {
+    width: 100%;
+    height: 100%;
 }
 
-/* --- Hero Layout Responsive Settings --- */
-.hero {
-    background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('https://unsplash.com');
+.hero-slide {
     background-size: cover;
     background-position: center;
-    color: var(--white-bg);
-    padding: 120px 5% 80px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
+    padding: 0 5%;
 }
 
-.hero h1 {
-    font-size: 32px;
-    margin-bottom: 15px;
+.hero-content {
+    max-width: 800px;
+    animation: fadeIn 0.8s ease;
+}
+
+.hero-content h1 {
+    font-size: 42px;
     font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--white-bg);
+    text-shadow: 0 4px 12px rgba(0,0,0,0.5);
 }
 
-.hero p {
-    font-size: 16px;
-    margin-bottom: 30px;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-    color: #cccccc;
+.hero-content p {
+    font-size: 18px;
+    margin-bottom: 35px;
+    color: #e0e0e0;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.5);
 }
 
 .hero-buttons {
     display: flex;
     justify-content: center;
-    gap: 15px;
+    gap: 20px;
 }
 
+/* Core Buttons Style Mapping */
 .btn {
     display: inline-block;
-    padding: 12px 25px;
+    padding: 14px 35px;
     text-decoration: none;
-    font-weight: 600;
+    font-weight: 700;
     border-radius: 4px;
     font-size: 14px;
-    transition: transform 0.2s, background-color 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: transform 0.2s ease, background-color 0.3s ease;
 }
 
-.btn-primary { 
-    background-color: var(--white-bg); 
-    color: var(--black-bg); 
+.btn-primary { background-color: var(--white-bg); color: var(--black-bg); }
+.btn-primary:hover { background-color: #e6e6e6; }
+.btn-secondary { background-color: var(--orange-highlight); color: var(--white-bg); }
+.btn-secondary:hover { background-color: #e05500; }
+.btn:hover { transform: translateY(-3px); }
+
+/* Customizing Hero Navigation Swiper Arrows */
+.hero-next, .hero-prev {
+    color: var(--white-bg) !important;
+    transition: color 0.2s ease;
+}
+.hero-next:hover, .hero-prev:hover {
+    color: var(--orange-highlight) !important;
+}
+.hero-pagination .swiper-pagination-bullet {
+    background: rgba(255,255,255,0.6) !important;
 }
 
-.btn-secondary { 
-    background-color: var(--orange-highlight); 
-    color: var(--white-bg); 
+/* --- Browse Categories Section --- */
+.categories-section {
+    padding: 70px 5% 40px 5%;
+    background-color: #fafafa;
+    text-align: center;
+    border-bottom: 1px solid var(--gray-border);
 }
 
-.btn:hover {
-    transform: translateY(-2px);
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    max-width: 1100px;
+    margin: 35px auto 0 auto;
 }
 
-/* --- Catalog & Cards Setup --- */
-.services-section { 
-    padding: 60px 5%; 
-    text-align: center; 
+.category-card {
+    background-color: var(--white-bg);
+    border: 1px solid var(--gray-border);
+    border-radius: 6px;
+    padding: 25px 15px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
-.services-section h2, .categories-section h2, .contact-section h2 { 
-    font-size: 28px; 
-    margin-bottom: 8px; 
+.category-card i {
+    font-size: 28px;
+    color: #555;
+    margin-bottom: 12px;
+    transition: color 0.3s ease;
 }
 
-.section-subtitle { 
-    color: #666; 
-    font-size: 14px; 
-    margin-bottom: 40px; 
+.category-card h3 {
+    font-size: 15px;
+    font-weight: 600;
+    color: #333;
 }
+
+.category-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.06);
+    border-color: #b3b3b3;
+}
+
+/* Active Category Highlights Rule */
+.category-card.active {
+    border: 2px solid var(--orange-highlight);
+    background-color: #fff9f5;
+}
+.category-card.active i {
+    color: var(--orange-highlight);
+}
+.category-card.active h3 {
+    color: var(--black-bg);
+    font-weight: 700;
+}
+
+/* --- Catalog & Grid Sections --- */
+.services-section { padding: 70px 5%; text-align: center; }
+.services-section h2, .categories-section h2, .contact-section h2 { font-size: 32px; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 10px; }
+.section-subtitle { color: #666; font-size: 15px; max-width: 600px; margin: 0 auto 50px auto; }
 
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 35px;
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -196,19 +233,20 @@ nav a:hover {
     background-color: var(--gray-card);
     border: 1px solid var(--gray-border);
     border-radius: 8px;
-    padding: 20px;
+    padding: 22px;
     text-align: left;
     display: flex;
     flex-direction: column;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.01);
 }
 
-/* --- Embedded Mini Slider Elements --- */
+/* --- Card Mini Swiper Sliders --- */
 .mini-slider {
     width: 100%;
-    height: 200px;
+    height: 220px;
     border-radius: 6px;
-    margin-bottom: 15px;
-    background-color: #eaeaea;
+    margin-bottom: 20px;
+    background-color: #f0f0f0;
 }
 
 .mini-slider img {
@@ -217,28 +255,32 @@ nav a:hover {
     object-fit: cover;
 }
 
-.swiper-pagination-bullet-active {
-    background: var(--orange-highlight) !important;
-}
-
-/* --- Card Actions Button Configurations --- */
+/* --- Product Buttons Layout Row --- */
 .card-buttons {
     display: flex;
-    gap: 10px;
-    margin-bottom: 15px;
+    gap: 12px;
+    margin-bottom: 20px;
 }
 
 .btn-card {
     flex: 1;
     text-align: center;
-    padding: 10px 5px;
+    padding: 12px 10px;
     font-size: 13px;
     text-decoration: none;
-    font-weight: 600;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
     border-radius: 4px;
-    border: 1px solid var(--black-bg);
+    border: 1.5px solid var(--black-bg);
     color: var(--black-bg);
-    transition: background 0.3s;
+    background-color: transparent;
+    transition: all 0.2s ease;
+}
+
+.btn-card:hover {
+    background-color: var(--black-bg);
+    color: var(--white-bg);
 }
 
 .primary-card-btn {
@@ -247,100 +289,69 @@ nav a:hover {
     color: var(--white-bg);
 }
 
-.product-card h3 { 
-    font-size: 18px; 
-    margin-bottom: 5px; 
-    font-weight: 700; 
+.primary-card-btn:hover {
+    background-color: #d45500;
+    border-color: #d45500;
+    color: var(--white-bg);
 }
 
-.product-card .tag { 
-    font-size: 11px; 
-    font-weight: 700; 
-    text-transform: uppercase; 
-    color: var(--orange-highlight); 
-    margin-bottom: 12px; 
-}
+.product-card h3 { font-size: 19px; margin-bottom: 6px; font-weight: 700; color: #111; }
+.product-card .tag { font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--orange-highlight); letter-spacing: 0.5px; margin-bottom: 15px; }
+.product-card ul { list-style: none; font-size: 14px; margin-top: auto; }
+.product-card ul li { margin-bottom: 8px; color: #444; border-bottom: 1px dashed #eaeaea; padding-bottom: 6px; }
+.product-card ul li:last-child { border: none; padding-bottom: 0; margin-bottom: 0; }
 
-.product-card ul { 
-    list-style: none; 
-    font-size: 14px; 
-}
+/* --- Contact Profile Section --- */
+.contact-section { background-color: var(--black-bg); color: var(--white-bg); padding: 70px 5%; text-align: center; }
+.contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 50px; max-width: 950px; margin: 0 auto; text-align: left; }
+.phone-number { font-size: 28px; font-weight: 700; color: var(--orange-highlight); margin: 15px 0; }
+.phone-number i { margin-right: 10px; }
 
-.product-card ul li { 
-    margin-bottom: 6px; 
-    color: #444; 
-}
-
-/* --- Contact & Icon Framework --- */
-.contact-section { 
-    background-color: var(--black-bg); 
-    color: var(--white-bg); 
-    padding: 60px 5%; 
-    text-align: center; 
-}
-
-.contact-grid { 
-    display: grid; 
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-    gap: 40px; 
-    max-width: 900px; 
-    margin: 0 auto; 
-    text-align: left; 
-}
-
-.phone-number { 
-    font-size: 24px; 
-    font-weight: 700; 
-    color: var(--orange-highlight); 
-    margin: 10px 0; 
-}
-
-.phone-number i { 
-    margin-right: 8px; 
-}
-
-.social-links { 
-    display: flex; 
-    flex-direction: column; 
-    gap: 12px; 
-}
-
+/* --- Social Media Boxes & Icon Alignments --- */
+.social-links { display: flex; flex-direction: column; gap: 14px; }
 .social-box {
     display: flex;
     align-items: center;
-    padding: 14px;
+    padding: 15px 20px;
     text-decoration: none;
     color: var(--white-bg);
     font-weight: 600;
+    font-size: 15px;
     border-radius: 4px;
-    background-color: #1a1a1a;
-    transition: background 0.3s;
+    background-color: #1c1c1c;
+    border-left: 4px solid #333;
+    transition: all 0.25s ease;
 }
 
-.social-box i { 
-    font-size: 20px; 
-    width: 30px; 
+/* Force social icons to render at fixed scale metrics */
+.social-box i {
+    font-size: 20px !important;
+    width: 35px;
+    text-align: left;
+    display: inline-block;
 }
 
-.whatsapp:hover { background-color: #25D366; }
-.facebook:hover { background-color: #1877F2; }
-.instagram:hover { background-color: #E1306C; }
-.tiktok:hover { background-color: #010101; }
+.whatsapp { border-left-color: #25D366; }
+.whatsapp:hover { background-color: #25D366; color: white; }
+.facebook { border-left-color: #1877F2; }
+.facebook:hover { background-color: #1877F2; color: white; }
+.instagram { border-left-color: #E1306C; }
+.instagram:hover { background-color: #E1306C; color: white; }
+.tiktok { border-left-color: #ffffff; }
+.tiktok:hover { background-color: #ffffff; color: #000000; }
 
-/* --- Footer Area --- */
-footer { 
-    background-color: #0b0b0b; 
-    color: #555; 
-    text-align: center; 
-    padding: 25px 5%; 
-    font-size: 12px; 
-    border-top: 1px solid #1a1a1a; 
+footer { background-color: #080808; color: #666; text-align: center; padding: 30px 5%; font-size: 13px; border-top: 1px solid #1a1a1a; }
+
+/* --- KEYFRAME ENGINES --- */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-/* --- MEDIA QUERY BREAKPOINT: Mobile Device Screen Optimizations --- */
+/* --- MOBILE RESPONSIVE MEDIA QUERIES --- */
 @media (max-width: 768px) {
     .menu-toggle {
-        display: block;
+        display: block; /* Reveals hamburger button on phones */
     }
 
     nav {
@@ -348,33 +359,30 @@ footer {
         flex-direction: column;
         width: 100%;
         position: absolute;
-        top: 60px;
+        top: 66px;
         left: 0;
         background-color: var(--black-bg);
         border-bottom: 2px solid var(--orange-highlight);
-        padding: 20px 0;
+        padding: 15px 0;
+        box-shadow: 0 10px 15px rgba(0,0,0,0.3);
     }
 
     nav.active {
-        display: flex;
+        display: flex; /* Script triggers this class parameter live */
     }
 
     nav a {
-        margin: 12px 5%;
+        margin: 10px 8%;
         font-size: 16px;
+        padding: 5px 0;
     }
 
-    .hero h1 { font-size: 28px; }
-    .hero p { font-size: 14px; }
-    .hero-buttons { 
-        flex-direction: column; 
-        width: 100%; 
-        max-width: 280px; 
-        margin: 0 auto; 
-        gap: 10px; 
-    }
-    .btn { width: 100%; text-align: center; }
+    .hero-slider-wrapper { height: 60vh; }
+    .hero-content h1 { font-size: 28px; }
+    .hero-content p { font-size: 15px; }
+    .hero-buttons { flex-direction: column; width: 100%; max-width: 280px; margin: 0 auto; gap: 10px; }
+    .btn { width: 100%; text-align: center; padding: 12px 20px; }
     
     .contact-grid { text-align: center; }
-    .social-box { justify-content: center; }
+.social-box { justify-content: start; }
 }
