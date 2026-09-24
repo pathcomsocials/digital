@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Miki Digital | Storefront</title>
+    <title>Miki Digital</title>
     <link href="https://googleapis.com" rel="stylesheet">
     <link rel="stylesheet" href="https://cloudflare.com" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://jsdelivr.net" />
@@ -13,43 +13,34 @@
     <header>
         <div class="logo">Miki <span>Digital</span></div>
         <nav id="nav-menu"><a href="#home">Home</a><a href="#categories">Categories</a><a href="#services">Products</a><a href="#contact">Contact</a></nav>
-        <button class="menu-toggle" id="mobile-menu" aria-label="Open Navigation"><i class="fas fa-bars"></i></button>
+        <button class="menu-toggle" id="mobile-menu" aria-label="Menu"><i class="fas fa-bars"></i></button>
     </header>
 
-    <!-- FIXED SLIDER INNER STRUCTURE (Prevents Stacking) -->
     <section id="home" class="hero-slider-wrapper">
         <div class="swiper hero-swiper">
             <div class="swiper-wrapper">
-                
-                <!-- Slide 1: Vehicles -->
-                <div class="swiper-slide hero-slide" style="background-image:linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),url('https://pixabay.com/images/download/kyledamato-lamborghini-6011781_1920.jpg');">
+                <div class="swiper-slide hero-slide" style="background-image:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url('https://car-images.bauersecure.com/wp-images/217209/z925.jpg');">
                     <div class="hero-content">
                         <h1>Premium Hybrid & Electric Vehicles</h1>
-                        <p>Explore luxury automotive integrations handpicked for optimal holiday travel asset preservation.</p>
+                        <p>Luxury automotive assets handpicked for optimal travel performance.</p>
                         <div class="hero-buttons"><a href="#categories" class="btn btn-primary">View More</a><a href="#contact" class="btn btn-secondary">Buy Now</a></div>
                     </div>
                 </div>
-
-                <!-- Slide 2: Displays -->
-                <div class="swiper-slide hero-slide" style="background-image:linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),url('https://pixabay.com/images/download/frank_rietsch-tv-5837826_1920.jpg');">
+                <div class="swiper-slide hero-slide" style="background-image:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url('https://www.reliant.co.uk/blog/wp-content/uploads/2023/10/QLED-TV.jpg');">
                     <div class="hero-content">
                         <h1>Elite Cinematic Smart Displays</h1>
-                        <p>Immersive mini-LED and OLED home presentation panels running custom AI processing engines.</p>
+                        <p>Immersive mini-LED and OLED home presentation panels with AI processing engines.</p>
                         <div class="hero-buttons"><a href="#categories" class="btn btn-primary">View More</a><a href="#contact" class="btn btn-secondary">Buy Now</a></div>
                     </div>
                 </div>
-
-                <!-- Slide 3: Personal Tech -->
-                <div class="swiper-slide hero-slide" style="background-image:linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),url('https://pixabay.com/images/download/namair-watch-2910913_1920.jpg');">
+                <div class="swiper-slide hero-slide" style="background-image:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url('https://cdn.shopify.com/s/files/1/2402/6753/files/image14.png?v=1782292855');">
                     <div class="hero-content">
                         <h1>Next-Gen Personal Tech Gear</h1>
-                        <p>High-performance computational variables designed for the modern digital workspace ecosystem.</p>
+                        <p>High-performance electronics designed for the modern workspace ecosystem.</p>
                         <div class="hero-buttons"><a href="#categories" class="btn btn-primary">View More</a><a href="#contact" class="btn btn-secondary">Buy Now</a></div>
                     </div>
                 </div>
-
             </div>
-            <!-- Visible Navigation Dots and Chevron Controls -->
             <div class="swiper-pagination hero-pagination"></div>
             <div class="swiper-button-next hero-next"></div>
             <div class="swiper-button-prev hero-prev"></div>
@@ -58,7 +49,6 @@
 
     <section id="categories" class="categories-section">
         <h2>Browse By Category</h2>
-        <p class="section-subtitle">Select a target classification card below to filter our live marketplace views seamlessly.</p>
         <div class="category-grid">
             <div class="category-card active" onclick="filterCategory('all', this)"><i class="fas fa-th-large"></i><h3>All Items</h3></div>
             <div class="category-card" onclick="filterCategory('cars', this)"><i class="fas fa-car"></i><h3>Vehicles & Alternatives</h3></div>
@@ -71,44 +61,50 @@
         <h2>Our Catalog</h2>
         <div class="product-grid">
             <div class="product-card" data-category="cars">
-                <div class="swiper mini-slider"><div class="swiper-wrapper"><div class="swiper-slide"><img src="https://unsplash.com" alt="Toyota Fielder"></div><div class="swiper-slide"><img src="https://unsplash.com" alt="Interior"></div></div><div class="swiper-pagination"></div></div>
+                <div class="swiper mini-slider"><div class="swiper-wrapper"><div class="swiper-slide"><img src="https://unsplash.com" alt="Car"></div><div class="swiper-slide"><img src="https://unsplash.com" alt="Interior"></div></div><div class="swiper-pagination"></div></div>
                 <div class="card-buttons"><a href="#contact" class="btn-card">View More</a><a href="https://wa.me" target="_blank" class="btn-card primary-card-btn">Buy Now</a></div>
                 <h3>Toyota Fielder (2019 Hybrid WxB)</h3><p class="tag">Vehicles & Alternatives</p>
-                <ul><li><strong>Engine Profile:</strong> 1.5L 2LM Hybrid / CVT</li><li><strong>Technologies:</strong> E-Four AWD, Safety Sense C</li><li><strong>Inspection Hub:</strong> Mombasa Port / Nairobi Showroom</li></ul>
+                <ul><li><strong>Engine:</strong> 1.5L 2LM Hybrid / CVT</li><li><strong>Tech:</strong> E-Four AWD, Safety Sense C</li><li><strong>Hub:</strong> Mombasa Port / Nairobi</li></ul>
             </div>
             <div class="product-card" data-category="cars">
-                <div class="swiper mini-slider"><div class="swiper-wrapper"><div class="swiper-slide"><img src="https://unsplash.com" alt="Nissan Note"></div><div class="swiper-slide"><img src="https://unsplash.com" alt="Panel"></div></div><div class="swiper-pagination"></div></div>
+                <div class="swiper mini-slider"><div class="swiper-wrapper"><div class="swiper-slide"><img src="https://unsplash.com" alt="Car"></div><div class="swiper-slide"><img src="https://unsplash.com" alt="Panel"></div></div><div class="swiper-pagination"></div></div>
                 <div class="card-buttons"><a href="#contact" class="btn-card">View More</a><a href="https://wa.me" target="_blank" class="btn-card primary-card-btn">Buy Now</a></div>
                 <h3>Nissan Note (2019 e-POWER X)</h3><p class="tag">Vehicles & Alternatives</p>
-                <ul><li><strong>Engine Profile:</strong> 1.2L 3-Cylinder Generator</li><li><strong>Technologies:</strong> e-POWER Drive, Intelligent Trace</li><li><strong>Inspection Hub:</strong> Japan Imports / Nairobi Yards</li></ul>
+                <ul><li><strong>Engine:</strong> 1.2L 3-Cylinder Generator</li><li><strong>Tech:</strong> e-POWER Drive, Trace Control</li><li><strong>Hub:</strong> Japan / Nairobi Yards</li></ul>
             </div>
             <div class="product-card" data-category="tvs">
-                <div class="swiper mini-slider"><div class="swiper-wrapper"><div class="swiper-slide"><img src="https://unsplash.com" alt="LG TV"></div><div class="swiper-slide"><img src="https://unsplash.com" alt="Cinema"></div></div><div class="swiper-pagination"></div></div>
+                <div class="swiper mini-slider"><div class="swiper-wrapper"><div class="swiper-slide"><img src="https://unsplash.com" alt="TV"></div><div class="swiper-slide"><img src="https://unsplash.com" alt="Display"></div></div><div class="swiper-pagination"></div></div>
                 <div class="card-buttons"><a href="#contact" class="btn-card">View More</a><a href="https://wa.me" target="_blank" class="btn-card primary-card-btn">Buy Now</a></div>
                 <h3>LG OLED EVO C6 (65-Inch)</h3><p class="tag">Premium Displays & TVs</p>
-                <ul><li><strong>Engine Profile:</strong> Ultra-Thin Bezel Profile</li><li><strong>Technologies:</strong> α11 AI Processor, Booster Max</li><li><strong>Inspection Hub:</strong> Nairobi Express Hub Dropship</li></ul>
+                <ul><li><strong>Profile:</strong> Ultra-Thin Bezel Profile</li><li><strong>Tech:</strong> α11 AI Processor, Booster Max</li><li><strong>Hub:</strong> Nairobi Express Hub</li></ul>
             </div>
             <div class="product-card" data-category="tech">
                 <div class="swiper mini-slider"><div class="swiper-wrapper"><div class="swiper-slide"><img src="https://unsplash.com" alt="Watch"></div><div class="swiper-slide"><img src="https://unsplash.com" alt="Audio"></div></div><div class="swiper-pagination"></div></div>
                 <div class="card-buttons"><a href="#contact" class="btn-card">View More</a><a href="https://wa.me" target="_blank" class="btn-card primary-card-btn">Buy Now</a></div>
-                <h3>Miki High-Performance Asset Bundle</h3><p class="tag">Personal Tech Gear</p>
-                <ul><li><strong>Acoustics Profile:</strong> Active Noise Isolation Hardware</li><li><strong>Technologies:</strong> Multi-Channel Charging, Health Sync</li><li><strong>Inspection Hub:</strong> Direct Capital Logistics Terminal</li></ul>
+                <h3>Miki High-Performance Bundle</h3><p class="tag">Personal Tech Gear</p>
+                <ul><li><strong>Acoustics:</strong> Active Noise Isolation</li><li><strong>Tech:</strong> Fast Charging, Health Sync</li><li><strong>Hub:</strong> Logistics Terminal Delivery</li></ul>
             </div>
         </div>
     </section>
 
     <section id="contact" class="contact-section">
         <h2>Contact Miki Digital</h2>
-        <p>Connect across our communication desks to complete order escrow authorizations.</p>
         <div class="contact-grid">
             <div class="contact-info">
                 <h3>Direct Hotline</h3>
                 <p class="phone-number"><i class="fas fa-phone-alt"></i> 0787622535</p>
-                <p>Reach our communication desk directly via call or secure instant text messaging.</p>
             </div>
             <div class="social-icon-directory">
-                <a href="https://wa.me" target="_blank" class="icon-link whatsapp" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-                <a href="https://facebook.com" target="_blank" class="icon-link facebook" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://instagram.com" target="_blank" class="icon-link instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="https://tiktok.com" target="_blank" class="icon-link tiktok" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                <a href="https://wa.me" target="_blank" class="icon-link whatsapp"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://facebook.com" target="_blank" class="icon-link facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://instagram.com" target="_blank" class="icon-link instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://tiktok.com" target="_blank" class="icon-link tiktok"><i class="fab fa-tiktok"></i></a>
             </div>
+        </div>
+    </section>
+
+    <footer><p>&copy; 2026 Miki Digital. All Rights Reserved.</p></footer>
+    <script src="https://jsdelivr.net"></script>
+    <script src="script.js"></script>
+</body>
+</html>
