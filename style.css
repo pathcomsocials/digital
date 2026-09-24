@@ -1,0 +1,269 @@
+/* --- Global Styles & Fonts --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Montserrat', 'Helvetica', sans-serif;
+    background-color: #ffffff;
+    color: #111111;
+    line-height: 1.6;
+}
+
+/* --- Color Palette Variables --- */
+:root {
+    --orange-highlight: #ff6600;
+    --black-bg: #111111;
+    --white-bg: #ffffff;
+    --gray-card: #f9f9f9;
+    --gray-border: #e0e0e0;
+}
+
+/* --- Header & Navigation --- */
+header {
+    background-color: var(--black-bg);
+    color: var(--white-bg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 2px solid var(--orange-highlight);
+}
+
+header .logo {
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+header .logo span {
+    color: var(--orange-highlight);
+}
+
+nav a {
+    color: var(--white-bg);
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: var(--orange-highlight);
+}
+
+/* --- Home / Hero Section --- */
+.hero {
+    background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('https://unsplash.com');
+    background-size: cover;
+    background-position: center;
+    color: var(--white-bg);
+    padding: 140px 5% 100px 5%;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 42px;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 40px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #cccccc;
+}
+
+/* --- Buttons --- */
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 4px;
+    transition: transform 0.2s, background-color 0.3s;
+}
+
+.btn-primary {
+    background-color: var(--white-bg);
+    color: var(--black-bg);
+}
+
+.btn-secondary {
+    background-color: var(--orange-highlight);
+    color: var(--white-bg);
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+/* --- Services / Cards Section --- */
+.services-section {
+    padding: 80px 5%;
+    background-color: var(--white-bg);
+    text-align: center;
+}
+
+.services-section h2 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.section-subtitle {
+    color: #666;
+    margin-bottom: 50px;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* --- Product Cards --- */
+.product-card {
+    background-color: var(--gray-card);
+    border: 1px solid var(--gray-border);
+    border-radius: 8px;
+    padding: 25px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+}
+
+/* Row of action buttons located directly above product details */
+.card-buttons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.btn-card {
+    flex: 1;
+    text-align: center;
+    padding: 8px 10px;
+    font-size: 13px;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 4px;
+    border: 1px solid var(--black-bg);
+    color: var(--black-bg);
+    transition: background 0.3s;
+}
+
+.primary-card-btn {
+    background-color: var(--orange-highlight);
+    border-color: var(--orange-highlight);
+    color: var(--white-bg);
+}
+
+.product-card h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.product-card .tag {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--orange-highlight);
+    margin-bottom: 15px;
+}
+
+.product-card ul {
+    list-style: none;
+    font-size: 14px;
+}
+
+.product-card ul li {
+    margin-bottom: 8px;
+    color: #444;
+}
+
+/* --- Contact Section --- */
+.contact-section {
+    background-color: var(--black-bg);
+    color: var(--white-bg);
+    padding: 80px 5%;
+    text-align: center;
+}
+
+.contact-section h2 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.contact-section p {
+    color: #aaa;
+    margin-bottom: 40px;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.phone-number {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--orange-highlight);
+    margin: 15px 0;
+}
+
+.social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.social-box {
+    display: block;
+    padding: 12px;
+    text-decoration: none;
+    color: var(--white-bg);
+    font-weight: 600;
+    border-left: 4px solid var(--orange-highlight);
+    background-color: #222;
+    transition: background 0.3s;
+}
+
+.social-box:hover {
+    background-color: #333;
+}
+
+/* --- Footer --- */
+footer {
+    background-color: #0b0b0b;
+    color: #666;
+    text-align: center;
+    padding: 30px 5%;
+    font-size: 13px;
+    border-top: 1px solid #222;
+}
