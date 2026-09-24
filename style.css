@@ -1,4 +1,4 @@
-/* --- Global Styles & Fonts --- */
+/* --- Global Styles & Responsive Core --- */
 * {
     margin: 0;
     padding: 0;
@@ -14,6 +14,7 @@ body {
     background-color: #ffffff;
     color: #111111;
     line-height: 1.6;
+    overflow-x: hidden;
 }
 
 /* --- Color Palette Variables --- */
@@ -25,14 +26,14 @@ body {
     --gray-border: #e0e0e0;
 }
 
-/* --- Header & Navigation --- */
+/* --- Responsive Navigation Header --- */
 header {
     background-color: var(--black-bg);
     color: var(--white-bg);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 5%;
+    padding: 15px 5%;
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -40,9 +41,8 @@ header {
 }
 
 header .logo {
-    font-size: 24px;
+    font-size: 22px;
     font-weight: 700;
-    letter-spacing: 1px;
 }
 
 header .logo span {
@@ -54,6 +54,7 @@ nav a {
     text-decoration: none;
     margin-left: 20px;
     font-weight: 600;
+    font-size: 15px;
     transition: color 0.3s;
 }
 
@@ -61,110 +62,176 @@ nav a:hover {
     color: var(--orange-highlight);
 }
 
-/* --- Home / Hero Section --- */
+.menu-toggle {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--white-bg);
+}
+
+/* --- Categories Section --- */
+.categories-section {
+    padding: 60px 5% 40px 5%;
+    background-color: #fcfcfc;
+    text-align: center;
+}
+
+.category-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    max-width: 900px;
+    margin: 30px auto 0 auto;
+}
+
+.category-card {
+    background-color: var(--white-bg);
+    border: 2px solid var(--gray-border);
+    border-radius: 8px;
+    padding: 20px;
+    flex: 1;
+    min-width: 200px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.category-card i {
+    font-size: 32px;
+    color: var(--orange-highlight);
+    margin-bottom: 10px;
+}
+
+.category-card h3 {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.category-card:hover {
+    border-color: var(--orange-highlight);
+    transform: translateY(-3px);
+}
+
+/* --- Hero Layout Responsive Settings --- */
 .hero {
     background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('https://unsplash.com');
     background-size: cover;
     background-position: center;
     color: var(--white-bg);
-    padding: 140px 5% 100px 5%;
+    padding: 120px 5% 80px 5%;
     text-align: center;
 }
 
 .hero h1 {
-    font-size: 42px;
-    margin-bottom: 20px;
+    font-size: 32px;
+    margin-bottom: 15px;
     font-weight: 700;
 }
 
 .hero p {
-    font-size: 18px;
-    margin-bottom: 40px;
-    max-width: 700px;
+    font-size: 16px;
+    margin-bottom: 30px;
+    max-width: 600px;
     margin-left: auto;
     margin-right: auto;
     color: #cccccc;
 }
 
-/* --- Buttons --- */
 .hero-buttons {
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 15px;
 }
 
 .btn {
     display: inline-block;
-    padding: 12px 30px;
+    padding: 12px 25px;
     text-decoration: none;
     font-weight: 600;
     border-radius: 4px;
+    font-size: 14px;
     transition: transform 0.2s, background-color 0.3s;
 }
 
-.btn-primary {
-    background-color: var(--white-bg);
-    color: var(--black-bg);
+.btn-primary { 
+    background-color: var(--white-bg); 
+    color: var(--black-bg); 
 }
 
-.btn-secondary {
-    background-color: var(--orange-highlight);
-    color: var(--white-bg);
+.btn-secondary { 
+    background-color: var(--orange-highlight); 
+    color: var(--white-bg); 
 }
 
 .btn:hover {
     transform: translateY(-2px);
 }
 
-/* --- Services / Cards Section --- */
-.services-section {
-    padding: 80px 5%;
-    background-color: var(--white-bg);
-    text-align: center;
+/* --- Catalog & Cards Setup --- */
+.services-section { 
+    padding: 60px 5%; 
+    text-align: center; 
 }
 
-.services-section h2 {
-    font-size: 32px;
-    margin-bottom: 10px;
+.services-section h2, .categories-section h2, .contact-section h2 { 
+    font-size: 28px; 
+    margin-bottom: 8px; 
 }
 
-.section-subtitle {
-    color: #666;
-    margin-bottom: 50px;
+.section-subtitle { 
+    color: #666; 
+    font-size: 14px; 
+    margin-bottom: 40px; 
 }
 
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
     max-width: 1200px;
     margin: 0 auto;
 }
 
-/* --- Product Cards --- */
 .product-card {
     background-color: var(--gray-card);
     border: 1px solid var(--gray-border);
     border-radius: 8px;
-    padding: 25px;
+    padding: 20px;
     text-align: left;
     display: flex;
     flex-direction: column;
-    position: relative;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
 }
 
-/* Row of action buttons located directly above product details */
+/* --- Embedded Mini Slider Elements --- */
+.mini-slider {
+    width: 100%;
+    height: 200px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    background-color: #eaeaea;
+}
+
+.mini-slider img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.swiper-pagination-bullet-active {
+    background: var(--orange-highlight) !important;
+}
+
+/* --- Card Actions Button Configurations --- */
 .card-buttons {
     display: flex;
     gap: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 .btn-card {
     flex: 1;
     text-align: center;
-    padding: 8px 10px;
+    padding: 10px 5px;
     font-size: 13px;
     text-decoration: none;
     font-weight: 600;
@@ -180,90 +247,134 @@ nav a:hover {
     color: var(--white-bg);
 }
 
-.product-card h3 {
-    font-size: 18px;
-    margin-bottom: 5px;
+.product-card h3 { 
+    font-size: 18px; 
+    margin-bottom: 5px; 
+    font-weight: 700; 
 }
 
-.product-card .tag {
-    font-size: 12px;
-    font-weight: 700;
-    text-transform: uppercase;
-    color: var(--orange-highlight);
-    margin-bottom: 15px;
+.product-card .tag { 
+    font-size: 11px; 
+    font-weight: 700; 
+    text-transform: uppercase; 
+    color: var(--orange-highlight); 
+    margin-bottom: 12px; 
 }
 
-.product-card ul {
-    list-style: none;
-    font-size: 14px;
+.product-card ul { 
+    list-style: none; 
+    font-size: 14px; 
 }
 
-.product-card ul li {
-    margin-bottom: 8px;
-    color: #444;
+.product-card ul li { 
+    margin-bottom: 6px; 
+    color: #444; 
 }
 
-/* --- Contact Section --- */
-.contact-section {
-    background-color: var(--black-bg);
-    color: var(--white-bg);
-    padding: 80px 5%;
-    text-align: center;
+/* --- Contact & Icon Framework --- */
+.contact-section { 
+    background-color: var(--black-bg); 
+    color: var(--white-bg); 
+    padding: 60px 5%; 
+    text-align: center; 
 }
 
-.contact-section h2 {
-    font-size: 32px;
-    margin-bottom: 10px;
+.contact-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 40px; 
+    max-width: 900px; 
+    margin: 0 auto; 
+    text-align: left; 
 }
 
-.contact-section p {
-    color: #aaa;
-    margin-bottom: 40px;
+.phone-number { 
+    font-size: 24px; 
+    font-weight: 700; 
+    color: var(--orange-highlight); 
+    margin: 10px 0; 
 }
 
-.contact-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 40px;
-    max-width: 900px;
-    margin: 0 auto;
-    text-align: left;
+.phone-number i { 
+    margin-right: 8px; 
 }
 
-.phone-number {
-    font-size: 28px;
-    font-weight: 700;
-    color: var(--orange-highlight);
-    margin: 15px 0;
-}
-
-.social-links {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+.social-links { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 12px; 
 }
 
 .social-box {
-    display: block;
-    padding: 12px;
+    display: flex;
+    align-items: center;
+    padding: 14px;
     text-decoration: none;
     color: var(--white-bg);
     font-weight: 600;
-    border-left: 4px solid var(--orange-highlight);
-    background-color: #222;
+    border-radius: 4px;
+    background-color: #1a1a1a;
     transition: background 0.3s;
 }
 
-.social-box:hover {
-    background-color: #333;
+.social-box i { 
+    font-size: 20px; 
+    width: 30px; 
 }
 
-/* --- Footer --- */
-footer {
-    background-color: #0b0b0b;
-    color: #666;
-    text-align: center;
-    padding: 30px 5%;
-    font-size: 13px;
-    border-top: 1px solid #222;
+.whatsapp:hover { background-color: #25D366; }
+.facebook:hover { background-color: #1877F2; }
+.instagram:hover { background-color: #E1306C; }
+.tiktok:hover { background-color: #010101; }
+
+/* --- Footer Area --- */
+footer { 
+    background-color: #0b0b0b; 
+    color: #555; 
+    text-align: center; 
+    padding: 25px 5%; 
+    font-size: 12px; 
+    border-top: 1px solid #1a1a1a; 
+}
+
+/* --- MEDIA QUERY BREAKPOINT: Mobile Device Screen Optimizations --- */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    nav {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background-color: var(--black-bg);
+        border-bottom: 2px solid var(--orange-highlight);
+        padding: 20px 0;
+    }
+
+    nav.active {
+        display: flex;
+    }
+
+    nav a {
+        margin: 12px 5%;
+        font-size: 16px;
+    }
+
+    .hero h1 { font-size: 28px; }
+    .hero p { font-size: 14px; }
+    .hero-buttons { 
+        flex-direction: column; 
+        width: 100%; 
+        max-width: 280px; 
+        margin: 0 auto; 
+        gap: 10px; 
+    }
+    .btn { width: 100%; text-align: center; }
+    
+    .contact-grid { text-align: center; }
+    .social-box { justify-content: center; }
 }
